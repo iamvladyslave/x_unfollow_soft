@@ -16,21 +16,6 @@
 - 📱 **Responsive Design** - Works on all devices
 - 🔒 **Secure** - Local token storage, no external data transmission
 
-## 🚨 Warning
-
-**This tool is for educational and demonstration purposes only!**
-
-- Mass unfollowing may violate Twitter's Terms of Service
-- Could result in account restrictions or suspension
-- Use at your own risk
-- The author is not responsible for any consequences
-
-## 🖥️ Screenshots
-
-![Main Interface](screenshots/main.png)
-![Demo Mode](screenshots/demo.png)
-![Progress Tracking](screenshots/progress.png)
-
 ## 🛠️ Installation
 
 ### Prerequisites
@@ -40,7 +25,7 @@
 ### Quick Start
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/twitter-mass-unfollow.git
+git clone https://github.com/iamvladyslave/twitter-mass-unfollow.git
 cd twitter-mass-unfollow
 ```
 
@@ -185,66 +170,12 @@ We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) f
 4. Add tests if applicable
 5. Submit a pull request
 
-### Code of Conduct
-This project adheres to the [Contributor Covenant Code of Conduct](CODE_OF_CONDUCT.md).
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-```
-MIT License
-
-Copyright (c) 2025 Your Name
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-```
-
 ## 🙏 Acknowledgments
 
 - [Twitter Developer Platform](https://developer.twitter.com/) for API access
 - [OAuth 1.0a RFC 5849](https://tools.ietf.org/html/rfc5849) for authentication
 - [CSS Custom Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) for theming
 - [Monospace Fonts](https://fonts.google.com/specimen/Source+Code+Pro) for code aesthetics
-
-## 📞 Support
-
-- 🐛 **Bug Reports**: [GitHub Issues](https://github.com/yourusername/twitter-mass-unfollow/issues)
-- 💡 **Feature Requests**: [GitHub Discussions](https://github.com/yourusername/twitter-mass-unfollow/discussions)
-- 📧 **Email**: your.email@example.com
-- 🐦 **Twitter**: [@yourusername](https://twitter.com/yourusername)
-
-## 🔮 Roadmap
-
-- [ ] **OAuth 2.0 Support** - Modern authentication
-- [ ] **Rate Limit Management** - Better API handling
-- [ ] **Batch Operations** - Custom unfollow lists
-- [ ] **Analytics Dashboard** - Usage statistics
-- [ ] **Mobile App** - React Native version
-- [ ] **API v2 Support** - Latest Twitter endpoints
-
-## 📊 Project Status
-
-![GitHub last commit](https://img.shields.io/github/last-commit/yourusername/twitter-mass-unfollow)
-![GitHub issues](https://img.shields.io/github/issues/yourusername/twitter-mass-unfollow)
-![GitHub pull requests](https://img.shields.io/github/issues-pr/yourusername/twitter-mass-unfollow)
-![GitHub stars](https://img.shields.io/github/stars/yourusername/twitter-mass-unfollow)
 
 ---
 
