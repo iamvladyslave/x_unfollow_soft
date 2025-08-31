@@ -248,6 +248,6 @@ SOFTWARE.
 
 ---
 
-**Made with ❤️ by [Your Name](https://github.com/yourusername)**
+**Made with ❤️ by [iamvladyslave](https://github.com/iamvladyslave)**
 
 *If this project helps you, please give it a ⭐ star on GitHub!*
