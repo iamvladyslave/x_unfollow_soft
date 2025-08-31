@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twitter Mass Unfollow Tool</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🐦 Twitter Mass Unfollow Tool</h1>
+            <p>Professional tool for mass unfollowing Twitter accounts</p>
+        </header>
+
+        <main>
+            <div class="auth-section" id="authSection">
+                <h2>🔐 Authentication</h2>
+                <p>To start working, you need to authenticate with Twitter API</p>
+                
+                <div class="api-info-box">
+                    <h3>📋 API Requirements</h3>
+                    <ul>
+                        <li><strong>Free API:</strong> Limited access, demo mode only</li>
+                        <li><strong>Elevated Access:</strong> Full functionality, requires approval</li>
+                        <li><strong>Enterprise API:</strong> Unlimited access, paid service</li>
+                    </ul>
+                </div>
+                
+                <button id="authButton" class="btn btn-primary">
+                    Authenticate with Twitter
+                </button>
+                
+                <button id="demoModeButton" class="btn btn-secondary" style="margin-top: 10px;">
+                    🧪 Enable Demo Mode
+                </button>
+            </div>
+
+            <div class="unfollow-section" id="unfollowSection" style="display: none;">
+                <h2>⚠️ Warning!</h2>
+                <div class="warning-box">
+                    <p><strong>This action will unfollow ALL accounts you're following!</strong></p>
+                    <p>This action is irreversible. Make sure you really want to do this.</p>
+                </div>
+
+                <div class="stats">
+                    <div class="stat-item">
+                        <span class="stat-number" id="followingCount">-</span>
+                        <span class="stat-label">Following</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="unfollowedCount">0</span>
+                        <span class="stat-label">Unfollowed</span>
+                    </div>
+                </div>
+
+                <button id="unfollowAllButton" class="btn btn-danger">
+                    🚨 Unfollow ALL
+                </button>
+                
+                <button id="testApiButton" class="btn btn-secondary" style="margin-top: 20px;">
+                    🧪 Test API
+                </button>
+                
+                <button id="clearKeysButton" class="btn btn-secondary" style="margin-top: 10px;">
+                    🗑️ Clear Keys
+                </button>
+                
+                <button id="loadDefaultKeysButton" class="btn btn-secondary" style="margin-top: 10px;">
+                    🔑 Load Default Keys
+                </button>
+                
+                                <div class="progress" id="progress" style="display: none;">
+                    <div class="progress-bar" id="progressBar"></div>
+                    <span class="progress-text" id="progressText">0%</span>
+                </div>
+            </div>
+
+            <div class="status-section" id="statusSection" style="display: none;">
+                <h3>Operation Status</h3>
+                <div id="statusMessages" class="status-messages"></div>
+            </div>
+        </main>
+
+        <footer>
+            <p>⚠️ Use at your own risk. The author is not responsible for any consequences.</p>
+        </footer>
+    </div>
+
+    <script src="oauth.js"></script>
+    <script src="twitter-api.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

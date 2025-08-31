@@ -1,0 +1,586 @@
+/**
+ * Cyberpunk Twitter Mass Unfollow Tool
+ * 
+ * Modern dark theme with neon accents
+ * Inspired by hacker aesthetics and Twitter's design
+ * 
+ * Features:
+ * - Dark background with neon blue accents
+ * - Glowing effects and shadows
+ * - Modern typography and spacing
+ * - Responsive design for all devices
+ * 
+ * @author Your Name
+ * @version 1.0.0
+ * @license MIT
+ */
+
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Custom properties for consistent theming */
+:root {
+    --bg-primary: #0a0a0a;
+    --bg-secondary: #111111;
+    --bg-tertiary: #1a1a1a;
+    --accent-primary: #1da1f2;
+    --accent-secondary: #00d4ff;
+    --accent-danger: #ff4757;
+    --accent-success: #2ed573;
+    --accent-warning: #ffa502;
+    --text-primary: #ffffff;
+    --text-secondary: #b0b0b0;
+    --text-muted: #666666;
+    --border-color: #333333;
+    --shadow-neon: 0 0 20px rgba(29, 161, 242, 0.3);
+    --shadow-glow: 0 0 30px rgba(0, 212, 255, 0.2);
+}
+
+/* Base body styles */
+body {
+    font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Source Code Pro', monospace;
+    background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 50%, var(--bg-tertiary) 100%);
+    min-height: 100vh;
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Animated background */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(29, 161, 242, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(255, 71, 87, 0.05) 0%, transparent 50%);
+    z-index: -1;
+    animation: backgroundShift 20s ease-in-out infinite;
+}
+
+@keyframes backgroundShift {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    50% { transform: scale(1.1) rotate(1deg); }
+}
+
+/* Container and layout */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+}
+
+/* Header styles */
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+header::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent-primary), transparent);
+    box-shadow: var(--shadow-neon);
+}
+
+header h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    background: linear-gradient(45deg, var(--accent-primary), var(--accent-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: var(--shadow-glow);
+    letter-spacing: -1px;
+}
+
+header p {
+    font-size: 1.3rem;
+    color: var(--text-secondary);
+    font-weight: 300;
+    letter-spacing: 0.5px;
+}
+
+/* Main content area */
+main {
+    background: rgba(26, 26, 26, 0.8);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+main::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent-primary), transparent);
+    box-shadow: var(--shadow-neon);
+}
+
+/* Section headers */
+h2 {
+    color: var(--text-primary);
+    margin-bottom: 25px;
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--accent-primary);
+    border-radius: 2px;
+    box-shadow: var(--shadow-neon);
+}
+
+h3 {
+    color: var(--text-primary);
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+/* Paragraphs */
+p {
+    margin-bottom: 20px;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    font-size: 1rem;
+}
+
+/* Info boxes */
+.api-info-box {
+    background: rgba(29, 161, 242, 0.1);
+    border: 1px solid rgba(29, 161, 242, 0.3);
+    border-radius: 15px;
+    padding: 25px;
+    margin: 25px 0;
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+}
+
+.api-info-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(29, 161, 242, 0.05), transparent);
+    animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+    0%, 100% { transform: translateX(-100%); }
+    50% { transform: translateX(100%); }
+}
+
+.api-info-box h3 {
+    color: var(--accent-primary);
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.api-info-box ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.api-info-box li {
+    margin-bottom: 10px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+/* Warning box */
+.warning-box {
+    background: rgba(255, 165, 2, 0.1);
+    border: 1px solid rgba(255, 165, 2, 0.3);
+    border-radius: 15px;
+    padding: 25px;
+    margin: 25px 0;
+    text-align: left;
+    position: relative;
+}
+
+.warning-box p {
+    margin-bottom: 12px;
+    color: #ffa502;
+    font-weight: 500;
+}
+
+.warning-box p:last-child {
+    margin-bottom: 0;
+}
+
+/* Statistics */
+.stats {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin: 35px 0;
+}
+
+.stat-item {
+    text-align: center;
+    position: relative;
+}
+
+.stat-item::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 2px;
+    background: var(--accent-primary);
+    border-radius: 1px;
+}
+
+.stat-number {
+    display: block;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--accent-primary);
+    text-shadow: var(--shadow-neon);
+    margin-bottom: 8px;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 500;
+}
+
+/* Buttons */
+.btn {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration: none;
+    display: inline-block;
+    margin: 10px;
+    position: relative;
+    overflow: hidden;
+    font-family: inherit;
+    letter-spacing: 0.5px;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, var(--accent-primary), var(--accent-secondary));
+    color: var(--text-primary);
+    box-shadow: var(--shadow-neon);
+    border: 1px solid rgba(29, 161, 242, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(29, 161, 242, 0.4);
+}
+
+.btn-danger {
+    background: linear-gradient(45deg, var(--accent-danger), #ff6b7a);
+    color: var(--text-primary);
+    box-shadow: 0 0 20px rgba(255, 71, 87, 0.3);
+    font-size: 1.3rem;
+    padding: 20px 40px;
+    border: 1px solid rgba(255, 71, 87, 0.3);
+}
+
+.btn-danger:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(255, 71, 87, 0.4);
+}
+
+.btn-secondary {
+    background: linear-gradient(45deg, #666, #888);
+    color: var(--text-primary);
+    box-shadow: 0 0 15px rgba(102, 102, 102, 0.3);
+    border: 1px solid rgba(102, 102, 102, 0.3);
+}
+
+.btn-secondary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(102, 102, 102, 0.4);
+}
+
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Progress bar */
+.progress {
+    margin: 35px 0;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 25px;
+    height: 25px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+}
+
+.progress-bar {
+    background: linear-gradient(45deg, var(--accent-success), var(--accent-primary));
+    height: 100%;
+    border-radius: 25px;
+    width: 0%;
+    transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: progressShimmer 2s infinite;
+}
+
+@keyframes progressShimmer {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+.progress-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+/* Status section */
+.status-section {
+    margin-top: 35px;
+    padding-top: 35px;
+    border-top: 1px solid var(--border-color);
+}
+
+.status-section h3 {
+    color: var(--text-primary);
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.status-messages {
+    max-height: 250px;
+    overflow-y: auto;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    padding: 20px;
+    border: 1px solid var(--border-color);
+}
+
+.status-messages::-webkit-scrollbar {
+    width: 8px;
+}
+
+.status-messages::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+.status-messages::-webkit-scrollbar-thumb {
+    background: var(--accent-primary);
+    border-radius: 4px;
+}
+
+.status-message {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-family: 'SF Mono', 'Monaco', 'Inconsolata', monospace;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.status-message:last-child {
+    border-bottom: none;
+}
+
+.status-message.success {
+    color: var(--accent-success);
+}
+
+.status-message.error {
+    color: var(--accent-danger);
+}
+
+.status-message.info {
+    color: var(--accent-primary);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    color: var(--text-muted);
+    opacity: 0.8;
+    font-size: 0.9rem;
+    margin-top: 30px;
+    padding: 20px;
+    border-top: 1px solid var(--border-color);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+    
+    main {
+        padding: 25px;
+    }
+    
+    header h1 {
+        font-size: 2.2rem;
+    }
+    
+    .stats {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .btn {
+        padding: 12px 24px;
+        font-size: 1rem;
+        margin: 5px;
+    }
+    
+    .btn-danger {
+        padding: 15px 30px;
+        font-size: 1.1rem;
+    }
+}
+
+/* Dark mode enhancements */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-primary: #000000;
+        --bg-secondary: #0a0a0a;
+        --bg-tertiary: #111111;
+    }
+}
+
+/* Focus states for accessibility */
+.btn:focus,
+button:focus {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 2px;
+}
+
+/* Loading animation */
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.loading {
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* Glitch effect for cyberpunk feel */
+.glitch {
+    position: relative;
+}
+
+.glitch::before,
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.glitch::before {
+    animation: glitch-1 0.5s infinite;
+    color: var(--accent-danger);
+    z-index: -1;
+}
+
+.glitch::after {
+    animation: glitch-2 0.5s infinite;
+    color: var(--accent-secondary);
+    z-index: -2;
+}
+
+@keyframes glitch-1 {
+    0%, 100% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+}
+
+@keyframes glitch-2 {
+    0%, 100% { transform: translate(0); }
+    20% { transform: translate(2px, -2px); }
+    40% { transform: translate(2px, 2px); }
+    60% { transform: translate(-2px, -2px); }
+    80% { transform: translate(-2px, 2px); }
+}
